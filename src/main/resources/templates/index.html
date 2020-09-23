@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" href="https://green.bcc.kz/bcc.ico">
+    <title>Converter Online</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
+
+</head>
+<body>
+<div id="root">
+    <div class="MuiGrid-root MuiGrid-container">
+        <div class="loader">
+        </div>
+        <div class="MuiContainer-root jss3 MuiContainer-maxWidthLg">
+            <div class="header-login-logo">
+                <img class="header-logo-login__image" th:src="@{img/logintop.svg}" alt="Bank CenterCredit Logo">
+            </div>
+            <br>
+            <br>
+            <p class="MuiTypography-root jss5 MuiTypography-body1">Загрузить файл</p>
+            <br>
+            <p th:text="${message}" th:if="${message ne null}" class="alert alert-primary"></p>
+            <form method="post" th:action="@{/convert}" enctype="multipart/form-data">
+                <div class="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2">
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12">
+                        <div class="MuiFormControl-root MuiTextField-root MuiFormControl-fullWidth"
+                             style="height: 56px;">
+                            <div class="MuiInputBase-root MuiFilledInput-root jss6 MuiInputBase-fullWidth MuiInputBase-formControl">
+                                <input type="file" name="file" class="MuiInputBase-input MuiFilledInput-input">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="MuiGrid-root MuiGrid-item MuiGrid-grid-xs-12 MuiGrid-grid-sm-12 MuiGrid-grid-md-12">
+                        <button class="MuiButtonBase-root MuiButton-root jss10 MuiButton-text MuiButton-fullWidth"
+                                tabindex="0" type="submit">
+                            <span class="MuiButton-label">Конвертировать файл</span>
+                            <span class="MuiTouchRipple-root"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
